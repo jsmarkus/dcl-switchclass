@@ -1,27 +1,33 @@
-# dcl-class-switch
+# dcl-switchclass
 
-DCL util to bind attribute to set of CSS classes
+DCL util to bind attribute to a set of CSS classes
 
 ## Getting Started
-Install the module with: `npm install dcl-class-switch`
+Install the module with: `npm install dcl-switchclass`
 
 ```javascript
-var dcl_class_switch = require('dcl-class-switch');
-dcl_class_switch.awesome(); // "awesome"
+var switchclass = require('dcl-switchclass');
+
+switchclass(Widget, [{
+            attribute: 'span',
+            values: {
+                '1' : 'span1',
+                '2' : 'span2',
+                '3' : 'span3',
+                '4' : 'span4'
+            }
+        }, {
+            attribute: 'size',
+            values: {
+                'small':'btn-small',
+                'large':'btn-large',
+                'normal':'btn-normal'
+            }
+        }]);
+
+var w = new Widget();
+w.setAttribute('span', 2);
+w.setAttribute('size', 'small');
+
+//w will now have classes span2 and btn-small
 ```
-
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
-
-## License
-Copyright (c) 2013 Mark  
-Licensed under the MIT license.
